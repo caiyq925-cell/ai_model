@@ -1,0 +1,11 @@
+模型供应商管理 v0.2.1 绿色版 (Windows x64)
+
+直接双击 model-manager.exe 即可运行,无需安装。
+(需要 Windows 10/11,自带 WebView2)
+
+数据保存在: %APPDATA%\com.baozi.model-manager\providers.json
+  = C:\Users\<你的用户名>\AppData\Roaming\com.baozi.model-manager\providers.json
+换机器时把整个 model-manager 目录拷走即可,配置跟着这个文件走。
+
+配套本地 AI 网关(可选): D:\Users\ai_model\gateway\gateway.py
+  python gateway.py 后,其他 Agent 工具填 http://127.0.0.1:8788/v1 即可用上这里保存的模型。

@@ -1,0 +1,19 @@
+[package]
+name = "model-manager"
+version = "0.2.1"
+description = "模型供应商管理工具"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[profile.release]
+opt-level = 2
+lto = true
+strip = true

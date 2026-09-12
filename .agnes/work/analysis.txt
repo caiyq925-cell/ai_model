@@ -1,0 +1,23 @@
+PROVIDERS: aihubmix | once（中转） | 英伟达 | anyapi | tokenrouter | 新疆幻城 | 商汤1 | 商汤2 | 商汤3 | 商汤5 | 商汤6 | 商汤4 | 商汤7 | 商汤8 | 商汤9 | 商汤10 | 商汤11
+groq present? false
+
+=== 假通过 HTTP200空内容 ===
+  新疆幻城 / sensenova-6.8-flash-lite
+  商汤2 / glm-5.2
+  商汤3 / glm-5.2
+  商汤5 / glm-5.2
+  商汤6 / glm-5.2
+  商汤7 / glm-5.2
+  商汤8 / glm-5.2
+  商汤9 / glm-5.2
+  商汤10 / glm-5.2
+  商汤11 / glm-5.2
+
+=== 超时 status=0 ===
+  anyapi / nvidia/nemotron-3-ultra-550b-a55b:free
+  英伟达 / nvidia/llama-3.1-nemoguard-8b-content-safety
+  新疆幻城 / DeepSeek-V4-Pro
+  新疆幻城 / kimi-k3
+  新疆幻城 / longcat-2.0
+
+=== aihubmix 200含quota的content样例 ===

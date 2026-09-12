@@ -1,0 +1,14 @@
+const fs=require('fs');
+const r=JSON.parse(fs.readFileSync('D:/Users/ai_model/.agnes/work/results.json','utf8'));
+const by={};r.results.forEach(x=>{(by[x.provider]=by[x.provider]||[]).push(x);});
+let out='';
+out+='PROVIDERS: '+Object.keys(by).join(' | ')+'\n';
+out+='groq present? '+(!!(by['groq']))+'\n';
+out+='\n=== 假通过 HTTP200空内容 ===\n';
+r.results.filter(x=>x.kind==='empty').forEach(x=>out+='  '+x.provider+' / '+x.model+'\n');
+out+='\n=== 超时 status=0 ===\n';
+r.results.filter(x=>x.status===0).forEach(x=>out+='  '+x.provider+' / '+x.model+'\n');
+out+='\n=== aihubmix 200含quota的content样例 ===\n';
+r.results.filter(x=>x.provider==='aihubmix'&&x.status===200&&x.content&&!x.usable).slice(0,3).forEach(x=>out+='  '+x.model+': '+JSON.stringify(x.content).slice(0,200)+'\n');
+fs.writeFileSync('D:/Users/ai_model/.agnes/work/analysis.txt',out);
+console.log('done');

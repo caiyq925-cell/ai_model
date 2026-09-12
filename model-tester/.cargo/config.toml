@@ -1,0 +1,2 @@
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "link-arg=-LC:/Users/baozi/scoop/apps/gcc/15.2.0/x86_64-w64-mingw32/lib"]

@@ -1,0 +1,19 @@
+{
+  "_说明": "网关侧默认参数:转发前合并进请求体,客户端显式传的同名字段优先。思考开关按上游约定填,常见写法如下",
+  "_examples": {
+    "关思考(vLLM/Qwen 兼容)": {"enable_thinking": false},
+    "关思考(DeepSeek 风格)": {"thinking": {"type": "disabled"}},
+    "关思考(OpenRouter)": {"reasoning": {"enabled": false}},
+    "关思考(OpenAI o 系列)": {"reasoning_effort": "low"}
+  },
+  "model_defaults": {
+    "Qwen3.8-Flash-Next": {"enable_thinking": false},
+    "Qwen3.8-27B": {"enable_thinking": false},
+    "DeepSeek-V4-Pro": {"thinking": {"type": "disabled"}},
+    "DeepSeek-V4-Flash": {"thinking": {"type": "disabled"}},
+    "DeepSeek-V4-Flash-Vision-Exp": {"thinking": {"type": "disabled"}},
+    "kimi-k3": {"enable_thinking": false}
+  },
+  "_reasoning_override": "手动覆盖思考能力判定。true=强制标 yes,false=强制标 no。仅影响面板显示,不影响实际请求",
+  "reasoning_override": {}
+}

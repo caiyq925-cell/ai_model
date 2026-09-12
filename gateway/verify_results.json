@@ -1,0 +1,588 @@
+{
+ "updated_at": "2026-09-09T23:48:43+00:00",
+ "gateway": "http://127.0.0.1:8788",
+ "models": {
+  "[次]claude-opus-4-6": {
+   "status": "quota",
+   "latency": 2.0,
+   "thinking": "unknown",
+   "detail": "预扣费额度失败, 用户剩余额度: ¥0.140000, 需要预扣费额度: ¥0.200000 (request id: 202609092348081368145998268d9d6di2AOSqE)"
+  },
+  "[次]claude-opus-4-5-thinking": {
+   "status": "quota",
+   "latency": 2.22,
+   "thinking": "unknown",
+   "detail": "预扣费额度失败, 用户剩余额度: ¥0.090000, 需要预扣费额度: ¥0.200000 (request id: 202609092348081827363508268d9d6fl1Z1Qod)"
+  },
+  "big-pickle": {
+   "status": "no_choices",
+   "latency": 1.16,
+   "thinking": "unknown",
+   "detail": "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\" data-locale=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta "
+  },
+  "coding-glm-4.6-free": {
+   "status": "ok",
+   "latency": 0.95,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "[次]gemini-3.8-flash": {
+   "status": "ok",
+   "latency": 2.95,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-glm-4.7-free": {
+   "status": "ok",
+   "latency": 0.72,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-glm-5-turbo-free": {
+   "status": "ok",
+   "latency": 0.99,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-glm-5-free": {
+   "status": "ok",
+   "latency": 0.73,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "[次-流抗截]gemini-3.1-pro-preview": {
+   "status": "ok",
+   "latency": 4.25,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-glm-5.1-free": {
+   "status": "ok",
+   "latency": 0.98,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-glm-5.2-free": {
+   "status": "ok",
+   "latency": 0.64,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-glm-5.3-free": {
+   "status": "ok",
+   "latency": 0.97,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-kimi-k3-free": {
+   "status": "ok",
+   "latency": 0.95,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-minimax-m2-free": {
+   "status": "ok",
+   "latency": 0.97,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-minimax-m2.1-free": {
+   "status": "ok",
+   "latency": 0.84,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-minimax-m3-free": {
+   "status": "ok",
+   "latency": 0.84,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "coding-minimax-m2.5-free": {
+   "status": "ok",
+   "latency": 1.27,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "deepseek-v4-flash": {
+   "status": "http_error",
+   "latency": 0.61,
+   "thinking": "unknown",
+   "detail": "NOT_FOUND"
+  },
+  "DeepSeek-V4-Flash": {
+   "status": "no_choices",
+   "latency": 0.83,
+   "thinking": "unknown",
+   "detail": "{\"detail\":\"Not Found\"}"
+  },
+  "DeepSeek-V4-Flash-Vision-Exp": {
+   "status": "no_choices",
+   "latency": 0.62,
+   "thinking": "unknown",
+   "detail": "{\"detail\":\"Not Found\"}"
+  },
+  "coding-minimax-m2.7-free": {
+   "status": "ok",
+   "latency": 0.84,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "DeepSeek-V4-Pro": {
+   "status": "http_error",
+   "latency": 0.95,
+   "thinking": "unknown",
+   "detail": "openai_error"
+  },
+  "deepseek-v4-pro": {
+   "status": "http_error",
+   "latency": 0.55,
+   "thinking": "unknown",
+   "detail": "NOT_FOUND"
+  },
+  "gemini-3-flash-preview-free": {
+   "status": "ok",
+   "latency": 0.86,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gemini-3.5-flash-lite-free": {
+   "status": "ok",
+   "latency": 0.86,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "dots-3-note-preview-free": {
+   "status": "ok",
+   "latency": 0.98,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "dots-studio/dots-3-note-preview:free": {
+   "status": "http_error",
+   "latency": 2.75,
+   "thinking": "unknown",
+   "detail": "Internal Server Error"
+  },
+  "gemini-3.6-flash-free": {
+   "status": "ok",
+   "latency": 0.78,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gemini-3.7-flash-free": {
+   "status": "ok",
+   "latency": 0.76,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gemma-4-26b-a4b-it-free": {
+   "status": "ok",
+   "latency": 0.67,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gemini-3.8-flash-free": {
+   "status": "ok",
+   "latency": 0.67,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "glm-4.7-flash-free": {
+   "status": "ok",
+   "latency": 0.91,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gemma-4-31b-it-free": {
+   "status": "ok",
+   "latency": 0.91,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "glm-5.2": {
+   "status": "http_error",
+   "latency": 0.49,
+   "thinking": "unknown",
+   "detail": "NOT_FOUND"
+  },
+  "gpt-4.1-mini-free": {
+   "status": "ok",
+   "latency": 0.75,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gpt-4.1-free": {
+   "status": "ok",
+   "latency": 0.75,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gpt-4.1-nano-free": {
+   "status": "ok",
+   "latency": 0.69,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gpt-5.5-free": {
+   "status": "ok",
+   "latency": 0.77,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gpt-4o-free": {
+   "status": "ok",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "gpt-image-2-free": {
+   "status": "ok",
+   "latency": 0.75,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "auto": {
+   "status": "http_error",
+   "latency": 22.92,
+   "thinking": "unknown",
+   "detail": "404 Not found. Check the docs for available routes."
+  },
+  "gpt-oss-20b-free": {
+   "status": "ok",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "hy3-free": {
+   "status": "ok",
+   "latency": 0.69,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "k2.6-code-preview-free": {
+   "status": "ok",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "kimi-for-coding-free": {
+   "status": "ok",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "kimi-k3": {
+   "status": "http_error",
+   "latency": 0.67,
+   "thinking": "unknown",
+   "detail": "openai_error"
+  },
+  "lfm-2.5-2.6b-free": {
+   "status": "ok",
+   "latency": 0.75,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "laguna-s-2.1-free": {
+   "status": "ok",
+   "latency": 0.69,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "laguna-xs-2.1-free": {
+   "status": "ok",
+   "latency": 0.75,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "glm-5.3-flash": {
+   "status": "http_error",
+   "latency": 22.45,
+   "thinking": "unknown",
+   "detail": "404 Not found. Check the docs for available routes."
+  },
+  "ling-3.0-tiny-free": {
+   "status": "ok",
+   "latency": 0.66,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "meta/llama-3.2-11b-vision-instruct": {
+   "status": "no_choices",
+   "latency": 1.0,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "mimo-v2-flash-free": {
+   "status": "ok",
+   "latency": 0.67,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "MiniCPM5-1B": {
+   "status": "no_choices",
+   "latency": 0.39,
+   "thinking": "unknown",
+   "detail": "{\"detail\":\"Not Found\"}"
+  },
+  "meta/muse-glimmer-30b": {
+   "status": "no_choices",
+   "latency": 0.97,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "minimax-m2.7-free": {
+   "status": "ok",
+   "latency": 0.77,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "MiniMax-M3": {
+   "status": "http_error",
+   "latency": 0.38,
+   "thinking": "unknown",
+   "detail": "No available channel for model MiniMax-M3 under group auto (distributor) (request id: 202609092348262027925438268d9d6c13A491R)"
+  },
+  "mimo-v2.5-free": {
+   "status": "no_choices",
+   "latency": 1.91,
+   "thinking": "unknown",
+   "detail": "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\" data-locale=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta "
+  },
+  "nemotron-3-nano-omni-30b-a3b-reasoning-free": {
+   "status": "ok",
+   "latency": 0.59,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "mistralai/mistral-nemotron": {
+   "status": "no_choices",
+   "latency": 0.95,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "minimax-m3-free": {
+   "status": "quota",
+   "latency": 0.81,
+   "thinking": "unknown",
+   "detail": "Insufficient balance (tid: 2026090923482667033979753494711)"
+  },
+  "[次]glm-5.1": {
+   "status": "http_error",
+   "latency": 27.0,
+   "thinking": "unknown",
+   "detail": "openai_error"
+  },
+  "nemotron-3-super-120b-a12b-free": {
+   "status": "ok",
+   "latency": 0.59,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "nemotron-3-ultra-550b-a55b-free": {
+   "status": "ok",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "nemotron-3.5-content-safety-free": {
+   "status": "ok",
+   "latency": 0.77,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "nemotron-3.5-lightning-free": {
+   "status": "ok",
+   "latency": 0.75,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "north-mini-code-free": {
+   "status": "ok",
+   "latency": 0.72,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "longcat-2.0": {
+   "status": "http_error",
+   "latency": 15.55,
+   "thinking": "unknown",
+   "detail": "404 Not found. Check the docs for available routes."
+  },
+  "nvidia/ising-calibration-1.5-31b": {
+   "status": "no_choices",
+   "latency": 1.09,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/llama-3.1-nemotron-safety-guard-8b-v3": {
+   "status": "no_choices",
+   "latency": 1.26,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nemotron-3-ultra-free": {
+   "status": "no_choices",
+   "latency": 3.08,
+   "thinking": "unknown",
+   "detail": "<!DOCTYPE html><html lang=\"en\" dir=\"ltr\" data-locale=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta "
+  },
+  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning": {
+   "status": "no_choices",
+   "latency": 0.97,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/llama-3.1-nemoguard-8b-content-safety": {
+   "status": "no_choices",
+   "latency": 1.06,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/nemotron-3-ultra-550b-a55b": {
+   "status": "no_choices",
+   "latency": 1.05,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/nemotron-3-super-120b-a12b": {
+   "status": "no_choices",
+   "latency": 1.05,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+   "status": "http_error",
+   "latency": 1.53,
+   "thinking": "unknown",
+   "detail": "Internal Server Error"
+  },
+  "nvidia/nemotron-3.5-lightning-30b-a3b": {
+   "status": "no_choices",
+   "latency": 1.53,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/riva-translate-4b-instruct-v2": {
+   "status": "no_choices",
+   "latency": 0.95,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/riva-translate-4b-instruct-v1.1": {
+   "status": "no_choices",
+   "latency": 1.33,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "nvidia/nemotron-3-ultra-550b-a55b:free": {
+   "status": "http_error",
+   "latency": 1.36,
+   "thinking": "unknown",
+   "detail": "Internal Server Error"
+  },
+  "nvidia/nemotron-3.5-content-safety": {
+   "status": "no_choices",
+   "latency": 1.33,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "openai/gpt-oss-20b": {
+   "status": "no_choices",
+   "latency": 1.19,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "Qwen3.8-27B": {
+   "status": "http_error",
+   "latency": 0.5,
+   "thinking": "unknown",
+   "detail": "No available channel for model Qwen3.8-27B under group auto (distributor) (request id: 202609092348362564918108268d9d6GN2oTQZq)"
+  },
+  "ox-alpha": {
+   "status": "ok",
+   "latency": 0.69,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "poolside/laguna-xs-2.1": {
+   "status": "no_choices",
+   "latency": 1.22,
+   "thinking": "unknown",
+   "detail": "404 page not found\n"
+  },
+  "Qwen3.8-Flash-Next": {
+   "status": "no_choices",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": "{\"detail\":\"Not Found\"}"
+  },
+  "qwen3.6-plus-preview-free": {
+   "status": "ok",
+   "latency": 0.95,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "sensenova-6.8-flash-lite": {
+   "status": "http_error",
+   "latency": 0.53,
+   "thinking": "unknown",
+   "detail": "NOT_FOUND"
+  },
+  "xiaomi-mimo-v2-omni-free": {
+   "status": "ok",
+   "latency": 0.99,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "xiaomi-mimo-v2-pro-free": {
+   "status": "ok",
+   "latency": 1.22,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "xiaomi-mimo-v2.5-free": {
+   "status": "ok",
+   "latency": 1.2,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "step-explore": {
+   "status": "ok",
+   "latency": 1.69,
+   "thinking": "yes",
+   "detail": ""
+  },
+  "xiaomi-mimo-v2.5-pro-free": {
+   "status": "ok",
+   "latency": 0.7,
+   "thinking": "unknown",
+   "detail": ""
+  },
+  "[free]GLM-5.3": {
+   "status": "http_error",
+   "latency": 23.44,
+   "thinking": "unknown",
+   "detail": "Not Found"
+  },
+  "[free]GLM-5.3-flash": {
+   "status": "http_error",
+   "latency": 38.94,
+   "thinking": "unknown",
+   "detail": "Not Found"
+  },
+  "[free]kimi-k3": {
+   "status": "http_error",
+   "latency": 38.94,
+   "thinking": "unknown",
+   "detail": "Not Found"
+  },
+  "z-ai/glm-5.3-free": {
+   "status": "ok",
+   "latency": 2.28,
+   "thinking": "yes",
+   "detail": ""
+  }
+ }
+}

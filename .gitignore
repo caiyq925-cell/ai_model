@@ -1,0 +1,18 @@
+# Rust / cargo
+target/
+
+# Node
+node_modules/
+
+# Tauri build outputs
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

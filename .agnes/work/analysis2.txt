@@ -1,0 +1,16 @@
+=== GROQ /models ===
+error: HTTP 403
+ids: []
+raw: {"error":{"message":"Forbidden"}}
+
+=== AIHUBMIX content samples ===
+  gpt-4.1-free status=200 content="Sorry, to prevent abuse of free resources, accounts that have not been recharged can only try 10 times. You can increase the free quota after recharging; https://console.aihubmix.com/topup" err=
+  gpt-5.5-free status=200 content="Sorry, to prevent abuse of free resources, accounts that have not been recharged can only try 10 times. You can increase the free quota after recharging; https://console.aihubmix.com/topup" err=
+  ox-alpha status=200 content="Sorry, to prevent abuse of free resources, accounts that have not been recharged can only try 10 times. You can increase the free quota after recharging; https://console.aihubmix.com/topup" err=
+
+=== TIMEOUT RETRY (120s) ===
+  anyapi/nvidia/nemotron-3-ultra-550b-a55b:free status=200 ms=72450 content="我喜欢帮助你解答问题、提供信息和陪你聊天。" err=
+  英伟达/nvidia/llama-3.1-nemoguard-8b-content-safety status=0 ms=120003 content="" err=TIMEOUT(120000ms)
+  新疆幻城/DeepSeek-V4-Pro status=200 ms=30148 content="喜欢帮人用最少的代码解决问题。" err=
+  新疆幻城/kimi-k3 status=0 ms=120012 content="" err=TIMEOUT(120000ms)
+  新疆幻城/longcat-2.0 status=500 ms=30235 content="" err=分组 auto 下模型 longcat-2.0 的可用渠道不存在（retry） (request id: 202609101325414615543908268d9d68nUAnCwz)

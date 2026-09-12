@@ -1,0 +1,14 @@
+# Rust / Tauri
+src-tauri/target/
+target/
+src-tauri/gen/
+
+# Node
+node_modules/
+
+# 环境相关(本机 MinGW 链接配置)
+.cargo/
+
+# 系统文件
+Thumbs.db
+.DS_Store

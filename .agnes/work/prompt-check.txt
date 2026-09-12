@@ -1,0 +1,11 @@
+=== 用开放 prompt 验证(空内容/关键字 拦截) ===
+-- 商汤2 --
+[不通过] glm-5.2 → HTTP 429
+[通过] deepseek-v4-pro → 通过: 你好，我是一个能够回答问题、提供信息和帮助的AI助手。
+
+-- aihubmix (quota) --
+[不通过] gpt-4.1-free → 关键字「quota」→拦截
+[不通过] coding-glm-5.3-free → 关键字「quota」→拦截
+
+-- tokenrouter (真可用对照) --
+[不通过] z-ai/glm-5.3-free → 空内容→拦截

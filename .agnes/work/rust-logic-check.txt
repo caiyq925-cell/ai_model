@@ -1,0 +1,8 @@
+=== aihubmix (quota 假通过，应全部拦截) ===
+[不通过] gpt-4.1-free  → 假通过拦截: 内容含错误关键字「quota」, 原文=Sorry, to prevent abuse of free resources, accounts that have not been recharged
+[不通过] gpt-5.5-free  → 假通过拦截: 内容含错误关键字「quota」, 原文=Sorry, to prevent abuse of free resources, accounts that have not been recharged
+[不通过] coding-glm-5.3-free  → 假通过拦截: 内容含错误关键字「quota」, 原文=Sorry, to prevent abuse of free resources, accounts that have not been recharged
+
+=== 商汤2 (glm-5.2 应拦截, deepseek-v4-pro 应通过) ===
+[通过]glm-5.2  → 通过, 内容=ok
+[通过]deepseek-v4-pro  → 通过, 内容=ok

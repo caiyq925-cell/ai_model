@@ -16,3 +16,6 @@ __pycache__/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# 绿色版输出目录（build-release.ps1）
+model-manager/release/

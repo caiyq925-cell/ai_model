@@ -39,6 +39,10 @@ h1{font-size:18px;margin:0;color:#e6edf3} .accent{color:#58a6ff}
 .pill{padding:3px 10px;border-radius:20px;font-size:12px;background:#21262d;border:1px solid #30363d}
 .pill.ok{color:#7ee787;border-color:#2ea043} .pill.warn{color:#e3b34d;border-color:#9e6a03} .pill.err{color:#ff7b72;border-color:#da3633}
 .pill.dim{color:#7d8597} main{padding:18px 20px;max-width:1100px;margin:0 auto}
+.banner{display:none;margin-bottom:14px;padding:10px 12px;border:1px solid #da3633;border-radius:8px;
+  background:#2d1214;color:#ff7b72;font-size:13px}
+.banner.show{display:block}
+tr.stale td{opacity:.5}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:18px}
 .card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px}
 .card b{color:#e6edf3} .card small{font-size:12px;color:#7d8597}
@@ -64,6 +68,7 @@ a{color:#58a6ff}
   <span id="verify" class="pill dim"></span>
 </header>
 <main>
+  <div class="banner" id="vbanner"></div>
   <div class="cards" id="cards"></div>
   <div class="toolbar">
     <input id="q" placeholder="搜索模型名 / 供应商..." style="flex:1;min-width:220px">
@@ -75,7 +80,7 @@ a{color:#58a6ff}
     <button onclick="copyBaseURL()">复制 Base URL</button>
   </div>
   <table>
-    <thead><tr><th>模型</th><th>供应商</th><th>状态</th><th>耗时</th><th>深度思考</th><th>默认参数</th></tr></thead>
+    <thead><tr><th>模型</th><th>供应商</th><th>状态</th><th>耗时</th><th>深度思考</th><th>验证时间</th><th>默认参数</th></tr></thead>
     <tbody id="rows"></tbody>
   </table>
   <h3 style="margin-top:22px">请求/错误统计</h3>
@@ -86,6 +91,8 @@ a{color:#58a6ff}
 <script>
 const $=s=>document.querySelector(s);
 let data=null,lastRow=0;
+// 网关要求密钥时,面板的接口调用也要带上(?key=xxx),否则面板自己就会 401
+function withKey(u){return u+(data&&data.gateway.key_required?'?key='+new URLSearchParams(location.search).get('key'):'');}
 function esc(s){return String(s??"").replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
 function paint(){
   if(!data)return;
@@ -95,6 +102,11 @@ function paint(){
   $('#keyflag').textContent=g.key_required?'已配密钥':'无密钥(局域网务必配)';
   $('#provs').textContent=g.providers_file.split('\\\\').pop();
   $('#verify').textContent='更新: '+(data.verify_updated_at||'—');
+  $('#verify').className='pill '+(data.verify_error?'err':'dim');
+  const bn=$('#vbanner');
+  if(data.verify_error){bn.className='banner show';
+    bn.textContent='⚠ 上次验证未跑通,下面的结果是历史记录,不能当作当前结论: '+data.verify_error;}
+  else{bn.className='banner';bn.textContent='';}
   const st=data.stats||{};
   $('#cards').innerHTML=[['可用',st.requests??0,'ok'],['错误',st.errors??0,'warn'],
     ['模型',(data.models||[]).length,'dim'],['供应商',(data.providers||[]).length,'dim']]
@@ -116,25 +128,27 @@ function paint(){
     const sc=m.status==='ok'?'ok':(m.status==='unverified'?'dim':'err');
     const th=m.thinking.startsWith('yes')?'warn':(m.thinking==='no'||m.thinking.startsWith('no(')?'dim':'dim');
     const df=Object.keys(m.defaults||{}).length?esc(JSON.stringify(m.defaults)):'—';
-    return `<tr><td class="m">${esc(m.id)}</td><td class="small">${esc(m.owner)}</td>
+    const at=m.checked_at?esc(String(m.checked_at).replace('T',' ').replace(/\+00:00$/,'Z')):'—';
+    return `<tr class="${data.verify_error?'stale':''}"><td class="m">${esc(m.id)}</td><td class="small">${esc(m.owner)}</td>
       <td><span class="pill ${sc}">${esc(m.status)}</span>${m.detail?' '+esc(m.detail):''}</td>
       <td>${m.latency!=null?m.latency+'s':'—'}</td>
       <td><span class="pill ${th}">${esc(m.thinking)}</span></td>
+      <td class="small">${at}</td>
       <td class="small">${df}</td></tr>`;
   }).join('');
   $('#stats').textContent=JSON.stringify(st,null,2);
 }
 async function load(){
   try{
-    data=await(await fetch('/api/status'+(data&&data.gateway.key_required?'?key='+new URLSearchParams(location.search).get('key'):'') ,{cache:'no-store'})).json();
+    data=await(await fetch(withKey('/api/status'),{cache:'no-store'})).json();
     paint();
-  }catch(e){$('#rows').innerHTML='<tr><td colspan=6>加载失败: '+e.message+'</td></tr>';}
+  }catch(e){$('#rows').innerHTML='<tr><td colspan=7>加载失败: '+e.message+'</td></tr>';}
   setTimeout(load,5000);
 }
 async function toggleVerify(){
   const b=$('#vbtn');b.disabled=true;
-  try{const r=await fetch('/api/verify',{method:'POST'});const j=await r.json();
-    $('#log').textContent=j.message||JSON.stringify(j);if(j.ok)setInterval(async()=>{const s=await(await fetch('/api/verify')).json();
+  try{const r=await fetch(withKey('/api/verify'),{method:'POST'});const j=await r.json();
+    $('#log').textContent=j.message||JSON.stringify(j);if(j.ok)setInterval(async()=>{const s=await(await fetch(withKey('/api/verify'))).json();
     $('#log').textContent='验证'+(s.running?'运行中':'完成')+'  更新: '+(s.updated_at||'');
     if(!s.running){b.disabled=false;}},1500);else b.disabled=false;}
   catch(e){$('#log').textContent='启动失败: '+e.message;b.disabled=false;}
@@ -380,6 +394,12 @@ class VerifyResults:
     def updated_at(self):
         with self.lock:
             return self._data.get("updated_at")
+
+    @property
+    def error(self):
+        """上一次验证的整体失败原因(如网关密钥不匹配),None 表示正常。"""
+        with self.lock:
+            return self._data.get("error")
 
 # ---------- 响应兼容:个别网关把内容包在 data 字段里 ----------
 
@@ -731,6 +751,7 @@ class Handler(BaseHTTPRequestHandler):
             "models": [],
             "stats": stats,
             "verify_updated_at": vf.updated_at,
+            "verify_error": vf.error,
             "verify_running": Handler.verify_proc is not None and Handler.verify_proc.poll() is None,
         }
         for m, owner in sorted(seen.items(), key=lambda kv: kv[0].lower()):
@@ -766,6 +787,9 @@ class Handler(BaseHTTPRequestHandler):
             log = open(SCRIPT_DIR / "verify.log", "ab")
             args = [sys.executable, str(script),
                     "--gateway", f"http://127.0.0.1:{self.server.server_address[1]}"]
+            if self.gateway_key:
+                # 面板要把密钥透传给 verify.py,否则验证会全部 401
+                args += ["--key", self.gateway_key]
             kw = {}
             if os.name == "nt":
                 kw["creationflags"] = 0x00000008 | 0x00000200  # DETACHED | NEW_PROCESS_GROUP

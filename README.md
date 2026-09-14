@@ -121,13 +121,14 @@ python gateway.py          # 默认 127.0.0.1:8788
 
 ```bash
 python verify.py                          # 通过网关逐模型发最小对话,记录可用/耗时/是否思考
+python verify.py --key sk-my-secret       # 网关启动带了 --key 时必须给同一个,否则全部 401
 python verify.py --only qwen,gpt-4        # 只测关键字
 python verify.py --workers 6 --timeout 150 # 并发/超时
 ```
 
-也可在面板点「▶ 验证全部模型」。结果写 `verify_results.json`，面板每 5 秒自动刷新。
+也可在面板点「▶ 验证全部模型」（面板会自动带上网关密钥）。结果写 `verify_results.json`，面板每 5 秒自动刷新。
 
-状态：`ok` 可用 / `no_choices` 上游 200 但无内容（限流/模型名错）/ `http_error` 4xx/5xx / `timeout` / `dead`。
+状态：`ok` 可用 / `auth_error` 鉴权失败(401/403) / `no_choices` 上游 200 但无内容（限流/模型名错）/ `quota` 额度耗尽 / `http_error` 4xx/5xx / `timeout` / `dead`。**只有 `ok` 算通过**；验证整体没跑通时结果文件带 `error`，面板顶部红条提示并把历史结果置灰，不会拿旧结论冒充通过。
 
 > 实测（19 家供应商 / 97 模型）：可用约 56 个。`-free` 免费模型大多额度耗尽会返回"只能尝试 10 次"，属上游行为，网关只透传。
 

@@ -121,13 +121,17 @@ python gateway.py --providers "D:/some/where/providers.json"
 ```bash
 python verify.py                                   # 默认网关 http://127.0.0.1:8788
 python verify.py --gateway http://127.0.0.1:9000       # 指定网关
+python verify.py --key sk-my-secret                    # 网关启动时带了 --key，这里必须给同一个
 python verify.py --only qwen,gpt-4                    # 只测包含关键字的模型
 python verify.py --workers 6 --timeout 150             # 并发 6、单请求 150 秒超时
 ```
 
-也可以在面板里点「▶ 验证全部模型」触发，效果一样。
+也可以在面板里点「▶ 验证全部模型」触发，效果一样（面板会自动把网关密钥透传给 `verify.py`）。
 
-状态含义：`ok` 可用 / `no_choices` 上游返回 200 但无内容（模型名有误或限流）/ `http_error` 上游返回 4xx/5xx / `timeout` 超时 / `dead` 连接失败。
+状态含义：`ok` 可用 / `auth_error` 鉴权失败（401/403，密钥无效或无权限）/ `no_choices` 上游返回 200 但无内容（模型名有误或限流）/ `quota` 额度耗尽 / `http_error` 上游返回 4xx/5xx / `timeout` 超时 / `dead` 连接失败。**只有 `ok` 算通过**，其余一律不通过。
+
+> 测试和实际访问走的是同一条鉴权路径：网关启动带了 `--key` 时，`verify.py` 不带同一个密钥会整体失败（不会再把上一次的成功结果当成当前结论），结果文件里会写入 `error` 字段，面板顶部弹出红色提示并把表格里的历史结果置灰。每条结果都带 `checked_at`（面板"验证时间"列），方便判断结论是否过期。
+
 
 > 实测（当前 providers.json / 19 家供应商 / 97 个模型）：**56 个可用**，25 个无内容，16 个 HTTP 错误；3 个模型在最小请求下就输出了深度思考（`[次-流抗截]gemini-3.1-pro-preview`、`step-explore`、`z-ai/glm-5.3-free`）。
 

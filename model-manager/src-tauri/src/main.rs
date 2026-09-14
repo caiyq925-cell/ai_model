@@ -106,6 +106,12 @@ async fn fetch_models(base_url: String, api_key: String) -> Result<Vec<String>, 
     let status = resp.status();
     let text = resp.text().await.map_err(|e| format!("读取响应失败: {e}"))?;
     if !status.is_success() {
+        if matches!(status.as_u16(), 401 | 403) {
+            return Err(format!(
+                "HTTP {status}: 密钥无效或无权限(鉴权失败) - {}",
+                error_message_from_body(&text)
+            ));
+        }
         return Err(format!("HTTP {status}: {}", error_message_from_body(&text)));
     }
     let v: serde_json::Value =
@@ -162,6 +168,13 @@ async fn test_model(base_url: String, api_key: String, model: String) -> Result<
     let status = resp.status();
     let text = resp.text().await.map_err(|e| format!("读取响应失败: {e}"))?;
     if !status.is_success() {
+        // 401/403 单独点出来:这类"密钥无效/无权限"绝不算通过
+        if matches!(status.as_u16(), 401 | 403) {
+            return Err(format!(
+                "HTTP {status}: 密钥无效或无权限(鉴权失败,判为不通过) - {}",
+                error_message_from_body(&text)
+            ));
+        }
         return Err(format!("HTTP {status}: {}", error_message_from_body(&text)));
     }
     let v: serde_json::Value =
